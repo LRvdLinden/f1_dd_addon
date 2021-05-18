@@ -42,40 +42,16 @@
 
 ## Installation Add-on
 ---
-- Copy the `f1` folder in to the `dwains-dashboard/addons/more_page` directory.
+- Copy the `formula1` folder in to the `dwains-dashboard/addons/more_page` directory.
 - Open your `more_page.yaml` file in `dwains-dashboard/configs` and add the following;
  ```yaml
      - name: F1
        main_menu: 'true' #Show this addon in the main navigation bar!
        icon: mdi:keyboard-f1
-       path: 'dwains-dashboard/addons/more_page/f1/page.yaml'
+       path: 'dwains-dashboard/addons/more_page/formula1/page.yaml'
 ```
 - Reload the theme configuration via Theme Settings
 
-## Replace the following
----
- ```yaml
-            - type: custom:atomic-calendar-revive
-              style: |
-                ha-card {
-                  border-radius: 5px;
-                  background-color: var(--dwains-theme-primary);
-                }
-                .cal-titleContainer {
-                  display: none;
-                }
-              showProgressBar: false
-              maxDaysToShow: 30
-              showMonth: true
-              showWeekDay: false
-              eventBarColor: 'var(--dwains-theme-grey)'
-              dayWrapperLineColor: 'var(--dwains-theme-grey)'
-              timeColor: 'var(--dwains-theme-grey)'
-              entities:
-                - calendar.ek_2020
-```
-- on line `73`: add the correct `entity` or `entities` to show
-- change `maxDaysToShow` on line `66`  in the days that you want
 
 ## Configuration ⚙️
 ---
