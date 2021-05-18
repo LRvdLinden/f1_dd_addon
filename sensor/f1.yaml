@@ -1,7 +1,6 @@
 - platform: rest
   resource: https://ergast.com/api/f1/current/driverStandings.json
   name: "F1 drivers championship"
-  icon_rest: mdi:keyboard-f1
   json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
   value_template: "ok"
   json_attributes:
@@ -10,7 +9,6 @@
 - platform: rest
   resource: http://ergast.com/api/f1/current/last/constructorStandings.json
   name: "F1 constructor standings"
-  icon_rest: mdi:keyboard-f1
   json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
   value_template: "ok"
   json_attributes:
@@ -41,7 +39,3 @@
 #    - pubDate
 #  exclusions:
 #    - language
-
-
-
-    
