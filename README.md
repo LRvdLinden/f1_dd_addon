@@ -42,13 +42,13 @@
 
 ## Installation Add-on
 ---
-- Copy the `EK21` folder in to the `dwains-dashboard/addons/more_page` directory.
+- Copy the `f1` folder in to the `dwains-dashboard/addons/more_page` directory.
 - Open your `more_page.yaml` file in `dwains-dashboard/configs` and add the following;
  ```yaml
-     - name: EK 2021
+     - name: F1
        main_menu: 'true' #Show this addon in the main navigation bar!
-       icon: mdi:soccer
-       path: 'dwains-dashboard/addons/more_page/ek21/page.yaml'
+       icon: mdi:keyboard-f1
+       path: 'dwains-dashboard/addons/more_page/f1/page.yaml'
 ```
 - Reload the theme configuration via Theme Settings
 
