@@ -40,7 +40,9 @@
 - Subscribe to [the official Formula1 calendar](https://calendar.google.com/calendar/r?cid=http://www.formula1.com/calendar/Formula_1_Official_Calendar.ics) and the [Track Image calendar](https://calendar.google.com/calendar/ical/vj31lmvf0g2inn2r5494imm3dc%40group.calendar.google.com/public/basic.ics) to your [Google Calendar](https://marksie1988.github.io/atomic-calendar-revive/options/main-options.html) and sync the calendar with Home Assistant
 - Make sure you have installed [atomic-calendar-revive](https://marksie1988.github.io/atomic-calendar-revive/options/main-options.html). This can be done manually or directly via hacs.
 
-## Installation Add-on
+
+
+## Installation Add-on ⚙️
 ---
 - Copy the `formula1` folder in to the `dwains-dashboard/addons/more_page` directory.
 - Open your `more_page.yaml` file in `dwains-dashboard/configs` and add the following;
