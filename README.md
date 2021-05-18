@@ -41,6 +41,11 @@
 - Make sure you have installed [atomic-calendar-revive](https://marksie1988.github.io/atomic-calendar-revive/options/main-options.html). This can be done manually or directly via hacs.
 
 
+## Create sensors 🔧
+---
+- Copy and place the `f1.yaml`file from the folder `sensor` in to your `/config/sensor` directory or `configuration.yaml`
+- Reboot Home Assistant
+
 
 ## Installation Add-on ⚙️
 ---
