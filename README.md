@@ -24,7 +24,7 @@
 </p> 
 
 
-![simple-ipad-pro-mockup-23619 (15)](https://user-images.githubusercontent.com/77990847/118478480-39157780-b710-11eb-8742-f1ff3a46ee24.png)
+![simple-ipad-pro-mockup-23619 (15)](https://user-images.githubusercontent.com/77990847/118716342-00b38d80-b825-11eb-9cac-6075115a547e.png)
 
 
 
