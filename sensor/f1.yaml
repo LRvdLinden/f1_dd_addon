@@ -1,0 +1,47 @@
+- platform: rest
+  resource: https://ergast.com/api/f1/current/driverStandings.json
+  name: "F1 drivers championship"
+  icon_rest: mdi:keyboard-f1
+  json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
+  value_template: "ok"
+  json_attributes:
+    - DriverStandings
+    
+- platform: rest
+  resource: http://ergast.com/api/f1/current/last/constructorStandings.json
+  name: "F1 constructor standings"
+  icon_rest: mdi:keyboard-f1
+  json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
+  value_template: "ok"
+  json_attributes:
+    - ConstructorStandings
+    
+- platform: template
+  sensors:      
+    f1_track_image:
+      friendly_name: F1 track image
+      icon_template: mdi:keyboard-f1
+      value_template: "ok"
+      attribute_templates:
+        track_image: >
+            {{ state_attr('calendar.f1_race', 'description') }}
+
+##COMING SOON##
+#- platform: feedparser
+#  name: F1 News
+#  feed_url: 'https://www.gpfans.com/nl/rss.xml'
+#  date_format: '%a, %b %d %I:%M %p'
+#  inclusions:
+#    - title
+#    - link
+#    - description
+#    - image
+#    - enclosure
+#    - language
+#    - pubDate
+#  exclusions:
+#    - language
+
+
+
+    
