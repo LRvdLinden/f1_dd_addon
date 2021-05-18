@@ -23,19 +23,3 @@
       attribute_templates:
         track_image: >
             {{ state_attr('calendar.f1_race', 'description') }}
-
-##COMING SOON##
-#- platform: feedparser
-#  name: F1 News
-#  feed_url: 'https://www.gpfans.com/nl/rss.xml'
-#  date_format: '%a, %b %d %I:%M %p'
-#  inclusions:
-#    - title
-#    - link
-#    - description
-#    - image
-#    - enclosure
-#    - language
-#    - pubDate
-#  exclusions:
-#    - language
