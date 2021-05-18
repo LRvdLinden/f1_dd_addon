@@ -1,4 +1,4 @@
-# f1_dd_addon<h1 align="center">Formula 1 Dwains Dashboard Add-on (more_page)</h1>
+<h1 align="center">Formula 1 Dwains Dashboard Add-on (more_page)</h1>
 
 <p align="center">
   <a href="https://dwainscheeren.github.io/dwains-lovelace-dashboard/">
