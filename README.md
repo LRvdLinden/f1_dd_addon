@@ -66,10 +66,10 @@
 
 ## Result
 ---
-![simple-ipad-pro-mockup-23619 (15)](https://user-images.githubusercontent.com/77990847/118478491-3e72c200-b710-11eb-9925-ace6b447f146.png)
-![simple-ipad-pro-mockup-23619 (16)](https://user-images.githubusercontent.com/77990847/118478492-3fa3ef00-b710-11eb-8200-d903e187c406.png)
+![mockup-of-two-iphones-12-pro-max-with-a-plain-background-5014-el1 (1)](https://user-images.githubusercontent.com/77990847/118715870-6fdcb200-b824-11eb-8adb-fe7755e16f04.png)
+![mockup-of-two-iphones-12-pro-max-with-a-plain-background-5014-el1 kopie](https://user-images.githubusercontent.com/77990847/118715872-723f0c00-b824-11eb-8e1c-a5bc75639339.png)
+![mockup-of-two-iphones-12-pro-max-with-a-plain-background-5014-el1 (2)](https://user-images.githubusercontent.com/77990847/118715848-68b5a400-b824-11eb-8542-fbe7389f8e22.png)
 
-![mockup-of-two-iphones-12-pro-max-with-a-plain-background-5014-el1 (5)](https://user-images.githubusercontent.com/77990847/118477161-af18df00-b70e-11eb-98cb-db06afa63b76.png)
 
 
 
