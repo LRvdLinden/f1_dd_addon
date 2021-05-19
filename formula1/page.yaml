@@ -136,7 +136,30 @@
                             tap_action: 
                               action: navigate
                               navigation_path: "#stands"
-
+                          - type: custom:button-card
+                            name: Radio # <- translate the button name
+                            #template: partials_heading_switch
+                            icon: 'fapro:radio-tuner'
+                            layout: icon_name
+                            styles:
+                              card:
+                                - box-shadow: none
+                                - padding: 6px 0 0 0
+                                - background: transparent
+                                - height: 30px
+                                - width: 125px
+                              name:
+                                - color: var(--dwains-theme-grey)
+                                - font-weight: bold
+                                - justify-self: start
+                                - font-size: 16px
+                                - padding-left: 1px
+                              icon:
+                                - opacity: 0.5
+                                - color: var(--dwains-theme-grey)
+                            tap_action: 
+                              action: url
+                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
 
                   - type: custom:atomic-calendar-revive
                     style: |
@@ -238,7 +261,30 @@
                             tap_action: 
                               action: navigate
                               navigation_path: "#stands"
-
+                          - type: custom:button-card
+                            name: Radio # <- translate the button name
+                            #template: partials_heading_switch
+                            icon: 'fapro:radio-tuner'
+                            layout: icon_name
+                            styles:
+                              card:
+                                - box-shadow: none
+                                - padding: 6px 0 0 0
+                                - background: transparent
+                                - height: 30px
+                                - width: 125px
+                              name:
+                                - color: var(--dwains-theme-grey)
+                                - font-weight: bold
+                                - justify-self: start
+                                - font-size: 16px
+                                - padding-left: 1px
+                              icon:
+                                - opacity: 0.5
+                                - color: var(--dwains-theme-grey)
+                            tap_action: 
+                              action: url
+                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
 
                   - type: markdown
                     title: Driver standings
@@ -320,4 +366,85 @@
                       {% endfor %}
 
 
-  
+              #RADIO VIEW 
+              radio:
+                type: vertical-stack
+                cards:
+                  - type: custom:dwains-flexbox-card
+                    padding: true
+                    cards:
+                      #heading  
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:button-card
+                            name: Race # <- translate the button name
+                            #template: partials_heading_switch
+                            icon: 'fapro:calendar-days'
+                            layout: icon_name
+                            styles:
+                              card:
+                                - box-shadow: none
+                                - padding: 6px 0 0 0
+                                - background: transparent
+                                - height: 30px
+                                - width: 125px
+                              name:
+                                - color: var(--dwains-theme-grey)
+                                - font-weight: bold
+                                - justify-self: start
+                                - font-size: 16px
+                                - padding-left: 1px
+                              icon:
+                                - opacity: 0.5
+                                - color: var(--dwains-theme-grey)
+                            tap_action: 
+                              action: navigate
+                              navigation_path: "#race"
+                          - type: custom:button-card
+                            name: Stands # <- translate the button name
+                            #template: partials_heading_switch
+                            icon: 'fapro:clipboard-list'
+                            layout: icon_name
+                            styles:
+                              card:
+                                - box-shadow: none
+                                - padding: 6px 0 0 0
+                                - background: transparent
+                                - height: 30px
+                                - width: 125px
+                              name:
+                                - color: var(--dwains-theme-grey)
+                                - font-weight: bold
+                                - justify-self: start
+                                - font-size: 16px
+                                - padding-left: 1px
+                              icon:
+                                - opacity: 0.5
+                                - color: var(--dwains-theme-grey)
+                            tap_action: 
+                              action: navigate
+                              navigation_path: "#stands"
+                          - type: custom:button-card
+                            name: Radio # <- translate the button name
+                            #template: partials_heading_switch
+                            icon: 'fapro:radio-tuner'
+                            layout: icon_name
+                            styles:
+                              card:
+                                - box-shadow: none
+                                - padding: 6px 0 0 0
+                                - background: transparent
+                                - height: 30px
+                                - width: 125px
+                              name:
+                                - color: var(--dwains-theme-accent)
+                                - font-weight: bold
+                                - justify-self: start
+                                - font-size: 16px
+                                - padding-left: 1px
+                              icon:
+                                - opacity: 0.5
+                                - color: var(--dwains-theme-accent)
+                            tap_action: 
+                              action: url
+                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
