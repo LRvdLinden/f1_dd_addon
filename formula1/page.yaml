@@ -142,7 +142,7 @@
                           
                   - type: markdown
                     content: >
-                      ![Image](https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monoco_Circuit.png.transform/5col-retina/image.png)
+                     ![Image]({{ state_attr('sensor.f1_track_image', 'track_image') }})
 
 
               #schedule VIEW 
