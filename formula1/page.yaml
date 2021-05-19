@@ -10,12 +10,6 @@
       item_classes: 'col-xs-12 col-sm-5'
       cards:         
         - type: markdown
-          content: >
-            ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)
-
-        - type: 'custom:button-card'
-          name:  >
-            [[[ return `${states['calendar.2021_fia_formula_one_world_championship_race_calendar'].attributes.location}` ]]]
           style: |
             ha-card {
             border-radius: 10px;
@@ -41,8 +35,36 @@
               color: darkgray !important;
               margin-left: 2px !important;
             }
+          content: >
+            ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)
+
             
         - type: markdown
+          style: |
+            ha-card {
+            border-radius: 10px;
+            padding-bottom: 10px;
+            background-color: var(--dwains-theme-primary)
+            }
+            :host {
+               --paper-item-icon-color: var(--dwains-theme-accent) !important;
+            }
+            .card-header {
+              padding: 5px 16px;
+              font-size: 18px;
+              font-weight: 700 !important;
+            }
+            .card-content div {
+                margin: 0 !important;
+            }
+            states {
+             padding-top: 0px !important;
+             padding-bottom: 0px !important;
+            }
+            .secondary {
+              color: darkgray !important;
+              margin-left: 2px !important;
+            }
           content: >
             ![Image]({{ state_attr('sensor.f1_track_image', 'track_image') }})
         
