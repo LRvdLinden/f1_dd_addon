@@ -1,7 +1,7 @@
 #Formula 1 Dwains Dashboard Add-on (more_page)
 # Creator: LRvdLinden
 # Website: https://github.com/LRvdLinden
-# v.1.0.0
+# v.1.0.1
 #
 - type: custom:dwains-flexbox-card
   items_classes: 'col-xs-12'
@@ -13,6 +13,39 @@
           content: >
             ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)
 
+        - type: 'custom:button-card'
+          name:  >
+            [[[ return `${states['calendar.2021_fia_formula_one_world_championship_race_calendar'].attributes.location}` ]]]
+          style: |
+            ha-card {
+            border-radius: 10px;
+            padding-bottom: 10px;
+            background-color: var(--dwains-theme-primary)
+            }
+            :host {
+               --paper-item-icon-color: var(--dwains-theme-accent) !important;
+            }
+            .card-header {
+              padding: 5px 16px;
+              font-size: 18px;
+              font-weight: 700 !important;
+            }
+            .card-content div {
+                margin: 0 !important;
+            }
+            states {
+             padding-top: 0px !important;
+             padding-bottom: 0px !important;
+            }
+            .secondary {
+              color: darkgray !important;
+              margin-left: 2px !important;
+            }
+            
+        - type: markdown
+          content: >
+            ![Image]({{ state_attr('sensor.f1_track_image', 'track_image') }})
+        
 
 #Match VIEWS
     - type: vertical-stack
@@ -21,130 +54,8 @@
          
           #Start of rooms and devices
           - type: custom:dwains-hash-switch-card
-            default: location
+            default: race
             states:
-              #race VIEW 
-              location:
-                type: vertical-stack
-                cards:
-                  - type: custom:dwains-flexbox-card
-                    padding: true
-                    cards:
-                      #matches  
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            name: Location # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:map-location-dot'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-accent)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-accent)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#location"
-                                  
-                          - type: custom:button-card
-                            name: Race # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#race"
-                          - type: custom:button-card
-                            name: Stands # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#stands"
-
-                  - type: 'custom:button-card'
-                    name:  >
-                        [[[ return `${states['calendar.2021_fia_formula_one_world_championship_race_calendar'].attributes.location}` ]]]
-                    styles:
-                      card:
-                        - --mdc-ripple-press-opacity: 0
-                        - cursor: initial
-                        - padding: 15px
-                        - font-size: 12pt
-                      name: 
-                        - text-transform: uppercase
-                        - font-size: 125%
-                        - letter-spacing: 10px
-                        - padding: 5px
-                        - border-bottom: 2px solid rgba(225, 225, 225, 0.60)
-                        - width: 100vw
-                      grid:
-                        - grid-template-areas: '"n n" "race_label race_content" "circuit_label circuit_content"'
-                        - grid-template-columns: min-content 1fr 
-                      custom_fields:
-                        race_label:
-                          - text-align: left
-                          - padding-top: 10px
-                        race_content:
-                          - text-align: right
-                          - padding-top: 10px
-                        circuit_label:
-                          - text-align: left
-                          - padding-top: 10px
-                        circuit_content:
-                          - text-align: right
-                          - padding-top: 10px
-                          
-                  - type: markdown
-                    content: >
-                     ![Image]({{ state_attr('sensor.f1_track_image', 'track_image') }})
-
-
               #schedule VIEW 
               race:
                 type: vertical-stack
@@ -155,31 +66,6 @@
                       #heading  
                       - type: horizontal-stack
                         cards:
-                          - type: custom:button-card
-                            name: Location # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:map-location-dot'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#location"
-                                  
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
@@ -282,31 +168,6 @@
                       #heading  
                       - type: horizontal-stack
                         cards:
-                          - type: custom:button-card
-                            name: Location # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:map-location-dot'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#location"
-                                  
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
