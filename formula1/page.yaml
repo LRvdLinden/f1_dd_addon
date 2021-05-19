@@ -316,7 +316,7 @@
                     content: >-
                      |Position|Name|Team|Points|Wins|
     
-                     |:-|:---------------|:------------------|:----:|:----:| 
+                     |:-:|:---------------|:------------------|:----:|:----:| 
  
                      {% for driver in
                      states.sensor.f1_drivers_championship.attributes['DriverStandings']
