@@ -22,4 +22,4 @@
       value_template: "ok"
       attribute_templates:
         track_image: >
-            {{ state_attr('calendar.f1_race', 'description') }}
+            {{ state_attr('calendar.f1_race', 'location') }}
