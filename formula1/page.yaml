@@ -66,7 +66,7 @@
               margin-left: 2px !important;
             }
           content: >
-            ![Image]({{ state_attr('calendar.f1_race', 'track_image') }})
+            ![Image]({{ state_attr('calendar.f1_tracks', 'track_image') }})
         
 
 #Match VIEWS
