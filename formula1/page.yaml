@@ -91,7 +91,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
+                            icon: 'mdi:calendar'
                             layout: icon_name
                             styles:
                               card:
@@ -115,7 +115,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
+                            icon: 'mdi:clipboard-flow-outline'
                             layout: icon_name
                             styles:
                               card:
@@ -139,7 +139,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
+                            icon: 'mdi:radio'
                             layout: icon_name
                             styles:
                               card:
@@ -216,7 +216,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
+                            icon: 'mdi:calendar'
                             layout: icon_name
                             styles:
                               card:
@@ -240,7 +240,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
+                            icon: 'mdi:clipboard-flow-outline'
                             layout: icon_name
                             styles:
                               card:
@@ -264,7 +264,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
+                            icon: 'mdi:radio'
                             layout: icon_name
                             styles:
                               card:
@@ -379,7 +379,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
+                            icon: 'mdi:calendar'
                             layout: icon_name
                             styles:
                               card:
@@ -403,7 +403,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
+                            icon: 'mdi:clipboard-flow-outline'
                             layout: icon_name
                             styles:
                               card:
@@ -427,7 +427,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
+                            icon: 'mdi:radio'
                             layout: icon_name
                             styles:
                               card:
