@@ -66,7 +66,7 @@
               margin-left: 2px !important;
             }
           content: >
-            ![Image]({{ state_attr('calendar.f1_tracks', 'track_image') }})
+            ![Image]({{ state_attr('calendar.f1_tracks', 'location') }})
         
 
 #Match VIEWS
