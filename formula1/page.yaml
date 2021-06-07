@@ -201,7 +201,7 @@
                     timeColor: 'var(--dwains-theme-grey)'
                     hideFinishedEvents: true
                     entities:
-                      - calendar.2021_fia_formula_one_world_championship_race_calendar
+                      - calendar.formula_1_calendar_by_racefans_net
 
               #schedule VIEW 
               stands:
