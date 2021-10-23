@@ -1,7 +1,7 @@
 #Formula 1 Dwains Dashboard Add-on (more_page)
 # Creator: LRvdLinden
 # Website: https://github.com/LRvdLinden
-# v.1.0.0
+# v.1.0.1
 #
 - type: custom:dwains-flexbox-card
   items_classes: 'col-xs-12'
@@ -40,33 +40,21 @@
 
             
         - type: markdown
-          style: |
-            ha-card {
-            border-radius: 10px;
-            padding-bottom: 10px;
-            background-color: var(--dwains-theme-primary)
-            }
-            :host {
-               --paper-item-icon-color: var(--dwains-theme-accent) !important;
-            }
-            .card-header {
-              padding: 5px 16px;
-              font-size: 18px;
-              font-weight: 700 !important;
-            }
-            .card-content div {
-                margin: 0 !important;
-            }
-            states {
-             padding-top: 0px !important;
-             padding-bottom: 0px !important;
-            }
-            .secondary {
-              color: darkgray !important;
-              margin-left: 2px !important;
-            }
-          content: >
-            ![Image]({{ state_attr('calendar.f1_tracks', 'location') }})
+          card_mod:
+          style:
+            ha-markdown$: |
+              * {
+                font-family: FormulaOne, "Titillium Web";
+              }
+          content: >-
+            {% set nr = states.sensor.formula_one_sensor.attributes.next_race %} {% if
+            not(nr == None) %}  <h1><img height="22"
+            src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{nr.Circuit.Location.country}}.png">&nbsp;
+            {{ nr.raceName }}</h1> {{nr.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(nr.date + ' ' + nr.time) | timestamp_custom("%Y-%m-%d %H:%M") }}</small>
+
+            <a target="_new" href="{{nr.Circuit.url}}">
+              <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{nr.Circuit.Location.country}}_Circuit.png.transform/7col/image.png">
+            </a> 
         
 
 #Match VIEWS
@@ -91,7 +79,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:calendar'
+                            icon: 'fapro:calendar-days'
                             layout: icon_name
                             styles:
                               card:
@@ -115,7 +103,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:clipboard-flow-outline'
+                            icon: 'fapro:clipboard-list'
                             layout: icon_name
                             styles:
                               card:
@@ -139,7 +127,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:radio'
+                            icon: 'fapro:radio-tuner'
                             layout: icon_name
                             styles:
                               card:
@@ -195,7 +183,7 @@
                     showMonth: true
                     showWeekDay: true
                     calActiveEventBackgroundColor: 'rgba(86, 128, 86, .35)'
-                    progressBarColor: 'var(-- state-icon-active-color)'
+                    progressBarColor: 'var(--dwains-theme-accent)'
                     eventBarColor: 'var(--dwains-theme-grey)'
                     dayWrapperLineColor: 'var(--dwains-theme-grey)'
                     timeColor: 'var(--dwains-theme-grey)'
@@ -216,7 +204,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:calendar'
+                            icon: 'fapro:calendar-days'
                             layout: icon_name
                             styles:
                               card:
@@ -240,7 +228,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:clipboard-flow-outline'
+                            icon: 'fapro:clipboard-list'
                             layout: icon_name
                             styles:
                               card:
@@ -264,7 +252,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:radio'
+                            icon: 'fapro:radio-tuner'
                             layout: icon_name
                             styles:
                               card:
@@ -287,83 +275,102 @@
                               url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
 
                   - type: markdown
-                    title: Driver standings
-                    style: |
-                      ha-card {
-                      border-radius: 10px;
-                      padding-bottom: 10px;
-                      background-color: var(--dwains-theme-primary)
-                      }
-                      :host {
-                         --paper-item-icon-color: var(--dwains-theme-accent) !important;
-                      }
-                      .card-header {
-                        padding: 5px 16px;
-                        font-size: 18px;
-                        font-weight: 700 !important;
-                      }
-                      .card-content div {
-                          margin: 0 !important;
-                      }
-                      states {
-                        padding-top: 0px !important;
-                        padding-bottom: 0px !important;
-                      }
-                      .secondary {
-                        color: darkgray !important;
-                        margin-left: 2px !important;
-                      }
-                    content: >-
-                      |Position|Name|Team|Points|Wins|
-    
-                      |:-:|:---------------|:------------------|:----:|:----:| 
- 
-                      {% for driver in
-                      states.sensor.f1_drivers_championship.attributes['DriverStandings']
-                      %}|{{driver.position}}|{{driver.Driver.givenName}}
-                      {{driver.Driver.familyName}}|{{driver.Constructors[0].name}}|
-                      {{driver.points}}| {{driver.wins}}|
-
+                    card_mod:
+                      style:
+                        ha-markdown$: |
+                          table {
+                            width: 100%;
+                            border-spacing: 0;
+                            border-collapse: separate;
+                          }
+                          th {
+                             color: white;
+                             background: rgb(41, 158, 194);
+                          }
+                          tr:nth-child(even) {
+                            background-color: var(--primary-background-color);
+                            color: rgb(41, 158, 194);
+                          }
+                          td:nth-child(1) {
+                            width: 50px;
+                            text-align: center;
+                          }
+                          td:nth-child(2) {
+                            width: 50px;
+                            text-align: center;
+                          }
+                          td:nth-child(4) {
+                            width: 60px;
+                            text-align: center;
+                          }
+                    content: |-
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>&nbsp;</th>
+                            <th colspan="2">Drivers</th>
+                            <th class="center">Pts</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                      {% for driver in states.sensor.formula_one_sensor.attributes.drivers %} <tr>
+                              <td>{{driver.position}}</td>
+                              <td>{{driver.Driver.code}}</td>
+                              <td>{{driver.Driver.givenName }} {{driver.Driver.familyName }}</td>
+                              <td>{{driver.points}}</td>
+                          </tr>
                       {% endfor %}
+                        </tbody>
+                      </table>
 
                   - type: markdown
-                    title: Constructors standings
-                    style: |
-                      ha-card {
-                      border-radius: 10px;
-                      padding-bottom: 10px;
-                      background-color: var(--dwains-theme-primary)
-                      }
-                      :host {
-                         --paper-item-icon-color: var(--dwains-theme-accent) !important;
-                      }
-                      .card-header {
-                        padding: 5px 16px;
-                        font-size: 18px;
-                        font-weight: 700 !important;
-                      }
-                      .card-content div {
-                          margin: 0 !important;
-                      }
-                      states {
-                        padding-top: 0px !important;
-                        padding-bottom: 0px !important;
-                      }
-                      .secondary {
-                        color: darkgray !important;
-                        margin-left: 2px !important;
-                      }
+                    card_mod:
+                      style:
+                        ha-markdown$: |
+                          table {
+                            width: 100%;
+                            border-spacing: 0;
+                            border-collapse: separate;
+                          }
+                          th {
+                             color: white;
+                             background: rgb(41, 158, 194);
+                          }
+                          tr:nth-child(even) {
+                            background-color: var(--primary-background-color);
+                            color: rgb(41, 158, 194);
+                          }
+                          td:nth-child(1) {
+                            width: 50px;
+                            text-align: center;
+                          }
+                          td:nth-child(2) {
+                            width: 50px;
+                            text-align: left;
+                          }
+                          td:nth-child(4) {
+                            width: 60px;
+                            text-align: center;
+                          }
                     content: >-
-                      |Position|Name|Nationality|Points|Wins|
-
-                      |:-:|:---------------|:---------------|:----:|:----:|
- 
-                      {% for constructor in
-                      states.sensor.f1_constructor_standings.attributes['ConstructorStandings']
-                      %}|{{constructor.position}}|{{constructor.Constructor.name}}|{{constructor.Constructor.nationality}}|
-                      {{constructor.points}}| {{constructor.wins}}|
-
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>&nbsp;</th>
+                            <th>Constructor</th>
+                            <th class="center">Pts</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                      {% for driver in states.sensor.formula_one_sensor.attributes.constructors %}
+                      <tr>
+                              <td>{{driver.position}}</td>
+                              <td>{{driver.Constructor.name }}</td>
+                              <td>{{driver.points}}</td>
+                          </tr>
                       {% endfor %}
+                        </tbody>
+                      </table>
 
 
               #RADIO VIEW 
@@ -379,7 +386,7 @@
                           - type: custom:button-card
                             name: Race # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:calendar'
+                            icon: 'fapro:calendar-days'
                             layout: icon_name
                             styles:
                               card:
@@ -403,7 +410,7 @@
                           - type: custom:button-card
                             name: Stands # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:clipboard-flow-outline'
+                            icon: 'fapro:clipboard-list'
                             layout: icon_name
                             styles:
                               card:
@@ -427,7 +434,7 @@
                           - type: custom:button-card
                             name: Radio # <- translate the button name
                             #template: partials_heading_switch
-                            icon: 'mdi:radio'
+                            icon: 'fapro:radio-tuner'
                             layout: icon_name
                             styles:
                               card:
@@ -448,3 +455,41 @@
                             tap_action: 
                               action: url
                               url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
+                  - type: entities
+                    title: F1 Radio
+                    style: |
+                      ha-card {
+                      border-radius: 10px;
+                      padding-bottom: 10px;
+                      background-color: var(--dwains-theme-primary)
+                      }
+                      :host {
+                        --paper-item-icon-color: var(--dwains-theme-accent) !important;
+                      }
+                      .card-header {
+                        padding: 5px 16px;
+                        font-size: 18px;
+                        font-weight: 700 !important;
+                      }
+                      .card-content div {
+                          margin: 0 !important;
+                      }
+                      states {
+                       padding-top: 0px !important;
+                       padding-bottom: 0px !important;
+                      }
+                      .secondary {
+                        color: darkgray !important;
+                        margin-left: 2px !important;
+                      }
+                    entities:
+                      - entity: input_select.radio_station
+                        icon: 'fapro:radio-tuner'
+                      - entity: input_select.radio_speaker
+                        icon: 'fapro:speakers'
+                      - entity: input_number.radio_volume
+                        icon: 'fapro:volume-high'
+                      - entity: script.radio_play
+                        icon: 'fapro:scroll'
+                    state_color: true
+  
