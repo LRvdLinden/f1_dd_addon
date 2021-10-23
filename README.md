@@ -31,7 +31,6 @@
 
 ## Prerequisite
 ---
-- Make sure you have the [Home Assistant Formula One API](https://github.com/delzear/hass-formulaoneapi) integration
 - Make sure you have the [Google Calendar Event](https://www.home-assistant.io/integrations/calendar.google/) integration
 ```yaml
      # Example configuration.yaml entry
@@ -41,6 +40,7 @@
 ```
 - Add the [F1 2021 Calendar by Racefans](https://www.racefans.net/contact/f1-fanatic-calendar/) to your Google Calendar and the [Track Image calendar](https://calendar.google.com/calendar/ical/vj31lmvf0g2inn2r5494imm3dc%40group.calendar.google.com/public/basic.ics) to your [Google Calendar](https://marksie1988.github.io/atomic-calendar-revive/options/main-options.html) and sync the calendar with Home Assistant
 - Make sure you have installed [atomic-calendar-revive](https://marksie1988.github.io/atomic-calendar-revive/options/main-options.html). This can be done manually or directly via hacs.
+- Make sure you have installed [Home Assistant Formula One API](https://github.com/delzear/hass-formulaoneapi). This can be done manually or directly via hacs.
 
 
 ## Create sensors 🔧
