@@ -4,11 +4,11 @@
 # v.1.0.2
 #
 - type: custom:dwains-flexbox-card
-  items_classes: 'col-xs-12'
+  items_classes: "col-xs-12"
   cards:
     - type: vertical-stack
-      item_classes: 'col-xs-12 col-sm-5'
-      cards:         
+      item_classes: "col-xs-12 col-sm-5"
+      cards:
         - type: markdown
           style: |
             ha-card {
@@ -38,7 +38,6 @@
           content: >
             ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)
 
-            
         - type: markdown
           card_mod:
           style:
@@ -50,446 +49,440 @@
             {% set nr = states.sensor.formula_one_sensor.attributes.next_race %} {% if
             not(nr == None) %}  <h1><img height="22"
             src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{nr.Circuit.Location.country}}.png">&nbsp;
-            {{ nr.raceName }}</h1> {{nr.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(nr.date + ' ' + nr.time) | timestamp_custom("%Y-%m-%d %H:%M") }}</small>
+            {{ nr.raceName }}</h1> {{nr.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(nr.date + ' ' + nr.time) | timestamp_custom("Race start %d-%m-%Y om %H:%M uur") }}</small>&nbsp;&nbsp;
 
             <a target="_new" href="{{nr.Circuit.url}}">
               <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{nr.Circuit.Location.country}}_Circuit.png.transform/7col/image.png">
-            </a> 
-        
+            </a>
 
-#Match VIEWS
+    #Match VIEWS
     - type: vertical-stack
-      item_classes: 'col-xs-12 col-sm-7'
-      cards:       
-         
-          #Start of rooms and devices
-          - type: custom:dwains-hash-switch-card
-            default: race
-            states:
-              #schedule VIEW 
-              race:
-                type: vertical-stack
-                cards:
-                  - type: custom:dwains-flexbox-card
-                    padding: true
-                    cards:
-                      #heading  
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            name: Race # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-accent)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-accent)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#race"
-                          - type: custom:button-card
-                            name: Stands # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#stands"
-                          - type: custom:button-card
-                            name: Radio # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: url
-                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
+      item_classes: "col-xs-12 col-sm-7"
+      cards:
+        #Start of rooms and devices
+        - type: custom:dwains-hash-switch-card
+          default: race
+          states:
+            #schedule VIEW
+            race:
+              type: vertical-stack
+              cards:
+                - type: custom:dwains-flexbox-card
+                  padding: true
+                  cards:
+                    #heading
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          name: Race # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:calendar-days"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-accent)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-accent)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#race"
+                        - type: custom:button-card
+                          name: Stands # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:clipboard-list"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#stands"
+                        - type: custom:button-card
+                          name: Radio # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:radio-tuner"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: url
+                            url_path: "https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3"
 
-                  - type: custom:atomic-calendar-revive
-                    style: |
-                      ha-card {
-                      border-radius: 10px;
-                      padding-bottom: 10px;
-                      background-color: var(--dwains-theme-primary)
-                      }
-                      :host {
-                        --paper-item-icon-color: var(--dwains-theme-accent) !important;
-                      }
-                      .card-header {
-                        padding: 5px 16px;
-                        font-size: 18px;
-                        font-weight: 700 !important;
-                      }
-                      .card-content div {
-                          margin: 0 !important;
-                      }
-                      states {
-                       padding-top: 0px !important;
-                       padding-bottom: 0px !important;
-                      }
-                      .secondary {
-                        color: darkgray !important;
-                        margin-left: 2px !important;
-                      }
-                    showProgressBar: true
-                    maxDaysToShow: 30
-                    maxEventCount: 5
-                    europeanDate: true
-                    showNoEventsForToday: true
-                    showMonth: true
-                    showWeekDay: true
-                    calActiveEventBackgroundColor: 'rgba(86, 128, 86, .35)'
-                    progressBarColor: 'var(--dwains-theme-accent)'
-                    eventBarColor: 'var(--dwains-theme-grey)'
-                    dayWrapperLineColor: 'var(--dwains-theme-grey)'
-                    timeColor: 'var(--dwains-theme-grey)'
-                    hideFinishedEvents: true
-                    entities:
-                      - calendar.formula_1_calendar_by_racefans_net
+                - type: custom:atomic-calendar-revive
+                  style: |
+                    ha-card {
+                    border-radius: 10px;
+                    padding-bottom: 10px;
+                    background-color: var(--dwains-theme-primary)
+                    }
+                    :host {
+                      --paper-item-icon-color: var(--dwains-theme-accent) !important;
+                    }
+                    .card-header {
+                      padding: 5px 16px;
+                      font-size: 18px;
+                      font-weight: 700 !important;
+                    }
+                    .card-content div {
+                        margin: 0 !important;
+                    }
+                    states {
+                     padding-top: 0px !important;
+                     padding-bottom: 0px !important;
+                    }
+                    .secondary {
+                      color: darkgray !important;
+                      margin-left: 2px !important;
+                    }
+                  showProgressBar: true
+                  maxDaysToShow: 30
+                  maxEventCount: 5
+                  europeanDate: true
+                  showNoEventsForToday: true
+                  showMonth: true
+                  showWeekDay: true
+                  calActiveEventBackgroundColor: "rgba(86, 128, 86, .35)"
+                  progressBarColor: "var(--dwains-theme-accent)"
+                  eventBarColor: "var(--dwains-theme-grey)"
+                  dayWrapperLineColor: "var(--dwains-theme-grey)"
+                  timeColor: "var(--dwains-theme-grey)"
+                  hideFinishedEvents: true
+                  entities:
+                    - calendar.formula_1_calendar_by_racefans_net
 
-              #schedule VIEW 
-              stands:
-                type: vertical-stack
-                cards:
-                  - type: custom:dwains-flexbox-card
-                    padding: true
-                    cards:
-                      #heading  
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            name: Race # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#race"
-                          - type: custom:button-card
-                            name: Stands # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-accent)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-accent)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#stands"
-                          - type: custom:button-card
-                            name: Radio # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: url
-                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
+            #schedule VIEW
+            stands:
+              type: vertical-stack
+              cards:
+                - type: custom:dwains-flexbox-card
+                  padding: true
+                  cards:
+                    #heading
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          name: Race # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:calendar-days"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#race"
+                        - type: custom:button-card
+                          name: Stands # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:clipboard-list"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-accent)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-accent)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#stands"
+                        - type: custom:button-card
+                          name: Radio # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:radio-tuner"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: url
+                            url_path: "https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3"
 
-                  - type: markdown
-                    card_mod:
-                      style:
-                        ha-markdown$: |
-                          table {
-                            width: 100%;
-                            border-spacing: 0;
-                            border-collapse: separate;
-                          }
-                          th {
-                             color: white;
-                             background: rgb(41, 158, 194);
-                          }
-                          tr:nth-child(even) {
-                            background-color: var(--primary-background-color);
-                            color: rgb(41, 158, 194);
-                          }
-                          td:nth-child(1) {
-                            width: 50px;
-                            text-align: center;
-                          }
-                          td:nth-child(2) {
-                            width: 50px;
-                            text-align: center;
-                          }
-                          td:nth-child(4) {
-                            width: 60px;
-                            text-align: center;
-                          }
-                    content: |-
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>&nbsp;</th>
-                            <th colspan="2">Drivers</th>
-                            <th class="center">Pts</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                      {% for driver in states.sensor.formula_one_sensor.attributes.drivers %} <tr>
-                              <td>{{driver.position}}</td>
-                              <td>{{driver.Driver.code}}</td>
-                              <td>{{driver.Driver.givenName }} {{driver.Driver.familyName }}</td>
-                              <td>{{driver.points}}</td>
-                          </tr>
-                      {% endfor %}
-                        </tbody>
-                      </table>
+                - type: markdown
+                  card_mod:
+                    style:
+                      ha-markdown$: |
+                        table {
+                          width: 100%;
+                          border-spacing: 0;
+                          border-collapse: separate;
+                        }
+                        th {
+                           color: white;
+                           background: rgb(41, 158, 194);
+                        }
+                        tr:nth-child(even) {
+                          background-color: var(--primary-background-color);
+                          color: rgb(41, 158, 194);
+                        }
+                        td:nth-child(1) {
+                          width: 50px;
+                          text-align: center;
+                        }
+                        td:nth-child(2) {
+                          width: 50px;
+                          text-align: center;
+                        }
+                        td:nth-child(4) {
+                          width: 60px;
+                          text-align: center;
+                        }
+                  content: |-
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>&nbsp;</th>
+                          <th colspan="2">Drivers</th>
+                          <th class="center">Pts</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    {% for driver in states.sensor.formula_one_sensor.attributes.drivers %} <tr>
+                            <td>{{driver.position}}</td>
+                            <td>{{driver.Driver.code}}</td>
+                            <td>{{driver.Driver.givenName }} {{driver.Driver.familyName }}</td>
+                            <td>{{driver.points}}</td>
+                        </tr>
+                    {% endfor %}
+                      </tbody>
+                    </table>
 
-                  - type: markdown
-                    card_mod:
-                      style:
-                        ha-markdown$: |
-                          table {
-                            width: 100%;
-                            border-spacing: 0;
-                            border-collapse: separate;
-                          }
-                          th {
-                             color: white;
-                             background: rgb(41, 158, 194);
-                          }
-                          tr:nth-child(even) {
-                            background-color: var(--primary-background-color);
-                            color: rgb(41, 158, 194);
-                          }
-                          td:nth-child(1) {
-                            width: 50px;
-                            text-align: center;
-                          }
-                          td:nth-child(2) {
-                            width: 50px;
-                            text-align: left;
-                          }
-                          td:nth-child(4) {
-                            width: 60px;
-                            text-align: center;
-                          }
-                    content: >-
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>&nbsp;</th>
-                            <th>Constructor</th>
-                            <th class="center">Pts</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                      {% for driver in states.sensor.formula_one_sensor.attributes.constructors %}
-                      <tr>
-                              <td>{{driver.position}}</td>
-                              <td>{{driver.Constructor.name }}</td>
-                              <td>{{driver.points}}</td>
-                          </tr>
-                      {% endfor %}
-                        </tbody>
-                      </table>
+                - type: markdown
+                  card_mod:
+                    style:
+                      ha-markdown$: |
+                        table {
+                          width: 100%;
+                          border-spacing: 0;
+                          border-collapse: separate;
+                        }
+                        th {
+                           color: white;
+                           background: rgb(41, 158, 194);
+                        }
+                        tr:nth-child(even) {
+                          background-color: var(--primary-background-color);
+                          color: rgb(41, 158, 194);
+                        }
+                        td:nth-child(1) {
+                          width: 50px;
+                          text-align: center;
+                        }
+                        td:nth-child(2) {
+                          text-align: left;
+                        }
+                        td:nth-child(3) {
+                          width: 60px;
+                          text-align: center;
+                        }
+                  content: |-
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>&nbsp;</th>
+                          <th>Constructor</th>
+                          <th class="center">Pts</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    {% for driver in states.sensor.formula_one_sensor.attributes.constructors %} <tr>
+                            <td>{{driver.position}}</td>
+                            <td>{{driver.Constructor.name }}</td>
+                            <td>{{driver.points}}</td>
+                        </tr>
+                    {% endfor %}
+                      </tbody>
+                    </table>
 
-
-              #RADIO VIEW 
-              radio:
-                type: vertical-stack
-                cards:
-                  - type: custom:dwains-flexbox-card
-                    padding: true
-                    cards:
-                      #heading  
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            name: Race # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:calendar-days'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#race"
-                          - type: custom:button-card
-                            name: Stands # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:clipboard-list'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-grey)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-grey)
-                            tap_action: 
-                              action: navigate
-                              navigation_path: "#stands"
-                          - type: custom:button-card
-                            name: Radio # <- translate the button name
-                            #template: partials_heading_switch
-                            icon: 'fapro:radio-tuner'
-                            layout: icon_name
-                            styles:
-                              card:
-                                - box-shadow: none
-                                - padding: 6px 0 0 0
-                                - background: transparent
-                                - height: 30px
-                                - width: 125px
-                              name:
-                                - color: var(--dwains-theme-accent)
-                                - font-weight: bold
-                                - justify-self: start
-                                - font-size: 16px
-                                - padding-left: 1px
-                              icon:
-                                - opacity: 0.5
-                                - color: var(--dwains-theme-accent)
-                            tap_action: 
-                              action: url
-                              url_path: 'https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3'
-                  - type: entities
-                    title: F1 Radio
-                    style: |
-                      ha-card {
-                      border-radius: 10px;
-                      padding-bottom: 10px;
-                      background-color: var(--dwains-theme-primary)
-                      }
-                      :host {
-                        --paper-item-icon-color: var(--dwains-theme-accent) !important;
-                      }
-                      .card-header {
-                        padding: 5px 16px;
-                        font-size: 18px;
-                        font-weight: 700 !important;
-                      }
-                      .card-content div {
-                          margin: 0 !important;
-                      }
-                      states {
-                       padding-top: 0px !important;
-                       padding-bottom: 0px !important;
-                      }
-                      .secondary {
-                        color: darkgray !important;
-                        margin-left: 2px !important;
-                      }
-                    entities:
-                      - entity: input_select.radio_station
-                        icon: 'fapro:radio-tuner'
-                      - entity: input_select.radio_speaker
-                        icon: 'fapro:speakers'
-                      - entity: input_number.radio_volume
-                        icon: 'fapro:volume-high'
-                      - entity: script.radio_play
-                        icon: 'fapro:scroll'
-                    state_color: true
-  
+            #RADIO VIEW
+            radio:
+              type: vertical-stack
+              cards:
+                - type: custom:dwains-flexbox-card
+                  padding: true
+                  cards:
+                    #heading
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          name: Race # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:calendar-days"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#race"
+                        - type: custom:button-card
+                          name: Stands # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:clipboard-list"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-grey)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-grey)
+                          tap_action:
+                            action: navigate
+                            navigation_path: "#stands"
+                        - type: custom:button-card
+                          name: Radio # <- translate the button name
+                          #template: partials_heading_switch
+                          icon: "fapro:radio-tuner"
+                          layout: icon_name
+                          styles:
+                            card:
+                              - box-shadow: none
+                              - padding: 6px 0 0 0
+                              - background: transparent
+                              - height: 30px
+                              - width: 125px
+                            name:
+                              - color: var(--dwains-theme-accent)
+                              - font-weight: bold
+                              - justify-self: start
+                              - font-size: 16px
+                              - padding-left: 1px
+                            icon:
+                              - opacity: 0.5
+                              - color: var(--dwains-theme-accent)
+                          tap_action:
+                            action: url
+                            url_path: "https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3"
+                - type: entities
+                  title: F1 Radio
+                  style: |
+                    ha-card {
+                    border-radius: 10px;
+                    padding-bottom: 10px;
+                    background-color: var(--dwains-theme-primary)
+                    }
+                    :host {
+                      --paper-item-icon-color: var(--dwains-theme-accent) !important;
+                    }
+                    .card-header {
+                      padding: 5px 16px;
+                      font-size: 18px;
+                      font-weight: 700 !important;
+                    }
+                    .card-content div {
+                        margin: 0 !important;
+                    }
+                    states {
+                     padding-top: 0px !important;
+                     padding-bottom: 0px !important;
+                    }
+                    .secondary {
+                      color: darkgray !important;
+                      margin-left: 2px !important;
+                    }
+                  entities:
+                    - entity: input_select.radio_station
+                      icon: "fapro:radio-tuner"
+                    - entity: input_select.radio_speaker
+                      icon: "fapro:speakers"
+                    - entity: input_number.radio_volume
+                      icon: "fapro:volume-high"
+                    - entity: script.radio_play
+                      icon: "fapro:scroll"
+                  state_color: true
