@@ -31,6 +31,7 @@
 
 ## Prerequisite
 ---
+- Make sure you have the [Home Assistant Formula One API](https://github.com/delzear/hass-formulaoneapi) integration
 - Make sure you have the [Google Calendar Event](https://www.home-assistant.io/integrations/calendar.google/) integration
 ```yaml
      # Example configuration.yaml entry
