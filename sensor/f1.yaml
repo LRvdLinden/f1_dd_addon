@@ -1,25 +1,2 @@
-- platform: rest
-  resource: https://ergast.com/api/f1/current/driverStandings.json
-  name: "F1 drivers championship"
-  json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
-  value_template: "ok"
-  json_attributes:
-    - DriverStandings
-    
-- platform: rest
-  resource: http://ergast.com/api/f1/current/last/constructorStandings.json
-  name: "F1 constructor standings"
-  json_attributes_path: "$.MRData.StandingsTable.StandingsLists[0]"
-  value_template: "ok"
-  json_attributes:
-    - ConstructorStandings
-    
-- platform: template
-  sensors:      
-    f1_track_image:
-      friendly_name: F1 track image
-      icon_template: mdi:keyboard-f1
-      value_template: "ok"
-      attribute_templates:
-        track_image: >
-            {{ state_attr('calendar.f1_tracks', 'location') }}
+
+- platform: formulaone_api
