@@ -1,7 +1,7 @@
 #Formula 1 Dwains Dashboard Add-on (more_page)
 # Creator: LRvdLinden
 # Website: https://github.com/LRvdLinden
-# v.1.0.1
+# v.1.0.2
 #
 - type: custom:dwains-flexbox-card
   items_classes: 'col-xs-12'
