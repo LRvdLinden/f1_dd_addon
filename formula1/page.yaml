@@ -248,7 +248,7 @@
                               - color: var(--dwains-theme-grey)
                           tap_action:
                             action: url
-                            url_path: "https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3"
+                            url_path: "https://grandprixradio.nl/radio-luisteren"
 
                 - type: markdown
                   card_mod:
