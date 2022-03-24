@@ -427,7 +427,7 @@
                               - color: var(--dwains-theme-accent)
                           tap_action:
                             action: url
-                            url_path: "https://21323.live.streamtheworld.com/GRAND_PRIX_RADIO.mp3"
+                            url_path: "https://playerservices.streamtheworld.com/api/livestream-redirect/GRAND_PRIX_RADIO.mp3"
                 - type: entities
                   title: F1 Radio
                   style: |
