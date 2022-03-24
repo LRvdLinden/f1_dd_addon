@@ -1,7 +1,7 @@
 #Formula 1 Dwains Dashboard Add-on (more_page)
 # Creator: LRvdLinden
 # Website: https://github.com/LRvdLinden
-# v.1.0.2
+# v.1.0.3 Fix Ruben Dijk for 2022
 #
 - type: custom:dwains-flexbox-card
   items_classes: "col-xs-12"
@@ -11,30 +11,9 @@
       cards:
         - type: markdown
           style: |
-            ha-card {
-            border-radius: 10px;
-            padding-bottom: 10px;
-            background-color: var(--dwains-theme-primary)
-            }
-            :host {
-               --paper-item-icon-color: var(--dwains-theme-accent) !important;
-            }
-            .card-header {
-              padding: 5px 16px;
-              font-size: 18px;
-              font-weight: 700 !important;
-            }
-            .card-content div {
-                margin: 0 !important;
-            }
-            states {
-             padding-top: 0px !important;
-             padding-bottom: 0px !important;
-            }
-            .secondary {
-              color: darkgray !important;
-              margin-left: 2px !important;
-            }
+            ha-card { box-shadow: none; 
+            background-color: var(--dwains-theme-primary);}
+            ha-markdown { padding-bottom: 1px !important; }
           content: >
             ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)
 
@@ -46,13 +25,13 @@
                 font-family: FormulaOne, "Titillium Web";
               }
           content: >-
-            {% set nr = states.sensor.formula_one_sensor.attributes.next_race %} {% if
-            not(nr == None) %}  <h1><img height="22"
-            src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{nr.Circuit.Location.country}}.png">&nbsp;
-            {{ nr.raceName }}</h1> {{nr.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(nr.date + ' ' + nr.time) | timestamp_custom("Race start %d-%m-%Y om %H:%M uur") }}</small>&nbsp;&nbsp;
+            {% set f1 = states.sensor.formula_one_sensor.attributes.next_race %} {% if
+            not(f1 == None) %}  <h1><img height="22"
+            src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{f1.Circuit.Location.country.replace(" ", "-")}}.png">&nbsp;
+            {{ f1.raceName }}</h1> {{f1.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(f1.date + ' ' + f1.time) | timestamp_custom("Race start %d-%m-%Y om %H:%M uur") }}</small>&nbsp;&nbsp;
 
-            <a target="_new" href="{{nr.Circuit.url}}">
-              <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{nr.Circuit.Location.country}}_Circuit.png.transform/7col/image.png">
+            <a target="_new" href="{{f1.Circuit.url}}">
+              <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{f1.Circuit.Location.country.replace(" ", "_")}}_Circuit.png.transform/9col/image.png">
             </a>
 
     #Match VIEWS
